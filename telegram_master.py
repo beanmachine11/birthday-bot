@@ -77,12 +77,12 @@ async def main():
         birthday_this_year = birthday_full.replace(year=today.year)
 
         # 🎉 Birthday today
-        if birthday_this_year == today:
+        if birthday_this_year == today - timedelta(days=1):
             birthday_today.append(row["Name"])
 
         # ⏳ 7-day reminder for Family
         if str(row["Category"]).strip().lower() == "family":
-            reminder_date = birthday_this_year - timedelta(days=7)
+            reminder_date = birthday_this_year - timedelta(days=8)
             if reminder_date == today:
                 family_reminders.append(row["Name"])
 
